@@ -1,0 +1,39 @@
+
+/* Card  */
+.student-card{
+    margin:5px;
+    padding:15px;
+    border:2px solid #333;
+}
+
+/* Card list */
+/* .card-list{
+    display:grid;
+
+} */
+
+/* Form  */
+.form-container{
+    width:100%;
+    margin-bottom:30px;
+    padding:30px 0;
+    display:flex;
+    justify-content: center;
+}
+
+.form{
+    width:500px;
+    display:flex;
+    flex-direction:column;
+}
+
+.form > label{
+    margin:5px 0;
+}
+
+.form > label > input{
+    height:22px;
+    width:100%;
+    padding:4px;
+    font-size:18px;
+}
