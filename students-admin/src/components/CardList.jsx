@@ -4,7 +4,7 @@ import Card from "./Card";
 // Component section 
 export default function CardList({students}){
     return(
-        <div className="card-List">
+        <div className="card-list">
             {students.length > 0 ?students.map((info,id)=>(
                 <Card
                 key={id} 

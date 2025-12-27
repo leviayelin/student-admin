@@ -1,7 +1,6 @@
 // Components section
 export default function Card({name,age,major,email}){
     return(
-        <>
             <div className="student-card">
                 <h2>Student Card</h2>
                 <div className="info">
@@ -11,6 +10,5 @@ export default function Card({name,age,major,email}){
                     <p>email : {email}</p>
                 </div>
             </div>
-        </>
     )
 }
