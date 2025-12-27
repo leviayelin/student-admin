@@ -7,10 +7,12 @@
 }
 
 /* Card list */
-/* .card-list{
+.card-list{
+    /* width:100%;
+    height:100%;
     display:grid;
-
-} */
+    grid-template-columns: repeat(3,minmax(1fr,200px)); */
+}
 
 /* Form  */
 .form-container{
