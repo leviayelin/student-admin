@@ -1,9 +1,7 @@
 
 /* Card  */
-.student-card{
-    margin:5px;
-    padding:15px;
-    border:2px solid #333;
+.student-card > div > p{
+    margin-bottom:0;
 }
 
 /* Card list */
@@ -12,6 +10,7 @@
     height:100%;
     display:grid;
     grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    gap:5px;
 }
 
 /* Form  */

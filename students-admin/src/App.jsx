@@ -1,7 +1,6 @@
 // Import section 
 import StudentForm from './pages/StudentForm'
-import './App.css'
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 // Component section 
 function App() {
 
