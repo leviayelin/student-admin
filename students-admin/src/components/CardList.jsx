@@ -8,6 +8,7 @@ export default function CardList({students}){
             {students.length > 0 ?students.map((info,id)=>(
                 <Card
                 key={id} 
+                id={id}
                 name={info.name}
                 age={info.age}
                 major={info.major}

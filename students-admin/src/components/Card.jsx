@@ -1,7 +1,16 @@
+// Import section 
+
 // Components section
-export default function Card({name,age,major,email}){
+export default function Card({id,name,age,major,email}){
+
+    // function - event handler 
+    const handleClick = (e) =>{
+        console.log(e.target.parentElement.id)
+    }
+
     return(
-        <div className="card shadow-sm student-card">
+        <div id={id} className="card shadow-sm student-card">
+            <span className="card-del" onClick={handleClick}>✖️</span>
             <div className="card-body">
                 <h5 className="card-title text-center mb-3">Student Card</h5>
                 <p className="card-text"><strong>Name:</strong> {name}</p>
