@@ -16,19 +16,33 @@ export default function StudentForm(){
         setStudents(savedData);
     },[])
 
-    // useState => this state will be calld by the form 
+    // useState => this state will be calld by the form (child)
     const addStudent = (newStudent) =>{
         const updateList = [...students,newStudent];
         setStudents(updateList) // this part triggers the UI update!
         localStorage.setItem("students", JSON.stringify(updateList))
     };
 
+    const deleteStudent = (id) =>{
+        /* note - filter:
+        - goes over the array one item at a time
+        - keeps items that return true
+        - removes items that return false
+
+        why? keep everyone except the clicked card
+        */ 
+        const updateList = students.filter((student, index) => index !== id);
+        // update the card list/localStorage
+        setStudents(updateList);
+        localStorage.setItem("students",JSON.stringify(updateList))
+    }
+
     return(
         <>
         {/* Pass the add function to Form */}
         <Form onAdd={addStudent}/>
         {/* Pass the data to CardList */}
-        <CardList students={students}/>
+        <CardList onDelete={deleteStudent} students={students}/>
         </>
     );
 };
