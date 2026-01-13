@@ -45,15 +45,15 @@ export default function Form({onAdd}){
         <>
         <div className="form-container">
             <form className="form" onSubmit={handleSubmit}>
-                <label htmlFor="name">Name:</label>
-                <input className="form-control" id="name" name="name" type="text" onChange={handleOnChange} value={formData.name} placeholder="Student name"/>
-                <label htmlFor="age">Age:</label>
-                <input className="form-control" id="age" name="age" type="number" onChange={handleOnChange} value={formData.age} placeholder="Student age"/>
-                <label htmlFor="major">Major:</label>
-                <input className="form-control" id="major" name="major" type="text" onChange={handleOnChange} value={formData.major} placeholder="Student major"/>
-                <label htmlFor="email">Email:</label>
-                <input className="form-control" id="email" name="email" type="email" onChange={handleOnChange} value={formData.email} placeholder="Student email"/>
-                <button className='btn btn-primary mt-3' type="submit">Send</button>
+                <label htmlFor="name">Name</label>
+                <input id="name" name="name" type="text" onChange={handleOnChange} value={formData.name}/>
+                <label htmlFor="age">Age</label>
+                <input id="age" name="age" type="number" onChange={handleOnChange} value={formData.age}/>
+                <label htmlFor="major">Major</label>
+                <input id="major" name="major" type="text" onChange={handleOnChange} value={formData.major}/>
+                <label htmlFor="email">Email</label>
+                <input id="email" name="email" type="email" onChange={handleOnChange} value={formData.email}/>
+                <button className='btn mt-3' type="submit">Send</button>
             </form>
         </div>
         </>
