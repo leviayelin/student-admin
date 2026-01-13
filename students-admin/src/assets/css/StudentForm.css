@@ -1,10 +1,49 @@
 
 /* Card  */
-.student-card > div > p{
+.student-card > div.card-body > p{
     margin-bottom:0;
 }
 
-.card-del{
+/* student Card settings  */
+.settings{
+    position:relative;
+}
+
+.settings:where(i,li){
+    cursor:pointer;
+}
+
+.student-edit-manu{
+    position:absolute;
+    list-style:none;
+    right:-5px;
+    bottom:-65px;
+    padding:5px 0;
+    background:#fff;
+    border-radius:4px;
+    transform:scale(1);
+    transform-origin:top right;
+    box-shadow:0 0 6px rgba(0,0,0,0.15);
+    z-index:10;
+    transition:transform 0.2s ease;
+}
+
+.student-edit-manu > li{
+    background:crimson;
+    height:25px;
+    font-size:16px;
+    margin-bottom:2px;
+    padding:17px 15px;
+    justify-content: flex-start;
+    cursor:pointer;
+}
+
+.student-edit-menu.show{
+    transform:scale(1);
+}
+
+.card-del,
+.card-edit{
     margin:0 50%;
     cursor:pointer;
     display:inline-block;
