@@ -13,12 +13,19 @@
 
 ## notes 
 
-- creating delete feature to each student data card, by using 
-local storage with key, there no need to add id parameter to get 
-the desire card element. 
-by using id parameter at Card component and and at CardList component 
-attech the key value to the id by doing so each card will get the number of the place its in the localstorage. this will make the delete feature easy 
-to implament.
+- creating delete feature to each student data card, by using logic of passing state.
+
+seprate functionalty :
+
+> StudentForm - hold the loaclstorage 
+> CardList - mange the loop & pass state 
+> Card - function as to UI 
+
++ at CardList, the meaning of passing state meant thet,
+that for this feature is only act as an object of connecting between components. as an understanding this can be apply to all components in other aspect.
+
++ the filter method work better for react than the use of splice, becouse of the virtual DOM re-rendering as a result of state change splice only mutate and modifie the original object/array but not create a new 
+like filter does.
 
 -------------------------------
 
@@ -31,5 +38,5 @@ to implament.
 
 2. user interface - creating page flow:
 
-  - navbar (logo, search field, add button)
+  - search field
   - main page display (student card data, by new added).
