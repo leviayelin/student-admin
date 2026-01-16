@@ -9,6 +9,7 @@ export default function StudentForm(){
 
     // Setting state's section 
     const [students,setStudents] = useState([]);
+    const [openMenuId,setOpenMenuId] = useState(null);
 
     // useEffect => loading data from localStorage 
     useEffect(()=>{
@@ -37,12 +38,27 @@ export default function StudentForm(){
         localStorage.setItem("students",JSON.stringify(updateList))
     }
 
+    // const showMenu = (cardId) =>{
+    //     let manuDiv = cardId.parentElement.lastElementChild;
+    //     manuDiv.classList.add("show");  
+
+    //     document.addEventListener('click', e=>{
+    //         if(e.target.tagName != "I" || e.target != cardId){
+    //             manuDiv.classList.remove("show");
+    //         }
+    //     })
+    // }
+
+    const toggleMenu = (id) =>{
+        setOpenMenuId(prev => (prev === id ? null:id))
+    }
+
     return(
         <>
         {/* Pass the add function to Form */}
         <Form onAdd={addStudent}/>
         {/* Pass the data to CardList */}
-        <CardList onDelete={deleteStudent} students={students}/>
+        <CardList onMenu={toggleMenu} openMenuId={openMenuId} onDelete={deleteStudent} students={students}/>
         </>
     );
 };

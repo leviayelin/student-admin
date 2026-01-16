@@ -9,11 +9,12 @@
     position:relative;
 }
 
-.settings:where(i,li){
+.settings i,
+.settings li{
     cursor:pointer;
 }
 
-.student-edit-manu{
+.student-edit-menu{
     position:absolute;
     list-style:none;
     right:-5px;
@@ -21,15 +22,14 @@
     padding:5px 0;
     background:#fff;
     border-radius:4px;
-    transform:scale(1);
+    transform:scale(0);
     transform-origin:top right;
     box-shadow:0 0 6px rgba(0,0,0,0.15);
     z-index:10;
     transition:transform 0.2s ease;
 }
 
-.student-edit-manu > li{
-    background:crimson;
+.student-edit-menu > li{
     height:25px;
     font-size:16px;
     margin-bottom:2px;
