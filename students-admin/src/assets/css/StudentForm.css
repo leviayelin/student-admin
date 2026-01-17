@@ -7,18 +7,21 @@
 /* student Card settings  */
 .settings{
     position:relative;
+    padding:0 10px 0;
+    text-align: right;
 }
 
-.settings i,
+.settings span,
 .settings li{
     cursor:pointer;
 }
 
 .student-edit-menu{
     position:absolute;
-    list-style:none;
+    list-style:none;   
+    top:20px;
     right:-5px;
-    bottom:-65px;
+    bottom:-100px;
     padding:5px 0;
     background:#fff;
     border-radius:4px;
@@ -30,6 +33,7 @@
 }
 
 .student-edit-menu > li{
+    display:flex;
     height:25px;
     font-size:16px;
     margin-bottom:2px;
@@ -44,9 +48,7 @@
 
 .card-del,
 .card-edit{
-    margin:0 50%;
     cursor:pointer;
-    display:inline-block;
 }
 
 /* Card list */

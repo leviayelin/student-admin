@@ -1,19 +1,36 @@
 // Import section
-import {useState} from 'react'
+import {useEffect,useRef} from 'react';
 
 // Components section
 export default function Card({id,name,age,major,email,onMenu,openMenuId,onDelete}){
 
     const isOpen = openMenuId === id;
+    const cardRef = useRef(null);
+
+    useEffect(()=>{
+        const handleClickOutSide = (e) =>{
+            if(!isOpen) return
+
+            if(cardRef.current && !cardRef.current.contains(e.target)){
+                onMenu(null);// close menu
+            }
+        };
+
+        document.addEventListener("mousedown",handleClickOutSide);
+
+        return()=>{
+            document.removeEventListener("mousedown", handleClickOutSide);
+        }
+    },[isOpen, onMenu])
 
     return(
-        <div id={id} className="card shadow-sm student-card">
+        <div id={id} ref={cardRef} className="card shadow-sm student-card">
             <div className="settings">
-                <i onClick={()=>onMenu(id)} className="uil uil-ellipsis-h">➕</i>
+                <span onClick={()=>onMenu(id)}>🟰</span>
                 {isOpen &&(
                     <ul className={`student-edit-menu ${isOpen?"show":""}`}>
-                        <li><span className="card-edit">edit</span></li>
-                        <li><span className="card-del" onClick={()=>onDelete(id)}>delete</span></li>
+                        <li className="card-edit">edit</li>
+                        <li className="card-del" onClick={()=>onDelete(id)}>delete</li>
                     </ul>
                 )}
             </div>

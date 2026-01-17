@@ -38,17 +38,7 @@ export default function StudentForm(){
         localStorage.setItem("students",JSON.stringify(updateList))
     }
 
-    // const showMenu = (cardId) =>{
-    //     let manuDiv = cardId.parentElement.lastElementChild;
-    //     manuDiv.classList.add("show");  
-
-    //     document.addEventListener('click', e=>{
-    //         if(e.target.tagName != "I" || e.target != cardId){
-    //             manuDiv.classList.remove("show");
-    //         }
-    //     })
-    // }
-
+    // card setting menu tiggle 
     const toggleMenu = (id) =>{
         setOpenMenuId(prev => (prev === id ? null:id))
     }
@@ -74,4 +64,11 @@ export default function StudentForm(){
 - Instant UI Updates: When setStudents is called in the parent, React automatically re-renders the CardList with the new data.
 - smart logic, before they just display data or send input, each on there on. now they
 connected by rendering and update becouse of the parent place and structor.
+
+** menu toggle - in react, the use of events is treated diffrentaly 
+    than with a regular DOM when an object can be change directly. 
+    for this usage react use 'state' to rander the vr-DOM whan change are made
+    and only change the changed object. the use of tradinional eventListener 
+    will couse a 'memory leak of data usage' by adding the same event 
+    everytime the DOM is render. 
 */
