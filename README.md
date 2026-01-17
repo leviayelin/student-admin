@@ -11,7 +11,7 @@ browser local storage. user can edit data or delete it.
 - JAVASCRIPT
 - REACT
 ## ➕ Features
-- stiident data display
+- student data display
 - form, add new student
 - data saved at browser localStorage
 - card data can be edited or deleted
