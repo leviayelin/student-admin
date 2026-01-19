@@ -13,5 +13,6 @@ browser local storage. user can edit data or delete it.
 ## ➕ Features
 - student data display
 - form, add new student
+- form, edit exited student data
 - data saved at browser localStorage
 - card data can be edited or deleted
