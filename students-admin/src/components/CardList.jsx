@@ -2,7 +2,7 @@
 import Card from "./Card"; 
 
 // Component section 
-export default function CardList({students,onMenu,openMenuId,onDelete}){
+export default function CardList({students,onMenu,openMenuId,onDelete,onEdit}){
     return(
         <div className="card-list">
             {students.length > 0 ?students.map((info,id)=>(
@@ -16,6 +16,7 @@ export default function CardList({students,onMenu,openMenuId,onDelete}){
                 onMenu={onMenu}
                 openMenuId={openMenuId}
                 onDelete={onDelete}
+                onEdit={onEdit}
                 />)):(
             <p>there's no data!</p>
             )}

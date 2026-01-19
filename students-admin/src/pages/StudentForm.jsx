@@ -10,6 +10,7 @@ export default function StudentForm(){
     // Setting state's section 
     const [students,setStudents] = useState([]);
     const [openMenuId,setOpenMenuId] = useState(null);
+    const [editingIndex, setEditingIndex] = useState(null);
 
     // useEffect => loading data from localStorage 
     useEffect(()=>{
@@ -24,6 +25,35 @@ export default function StudentForm(){
         localStorage.setItem("students", JSON.stringify(updateList))
     };
 
+    // Edit function - edit student data
+    const editStudent = (id) =>{
+        setEditingIndex(id);
+        console.log("edit card!");
+        setOpenMenuId(null); // close menu
+    };
+
+    const saveStudent = (student) =>{
+        let updateList;
+
+        if(editingIndex == null){
+            //ADD
+            updateList = [...students,student];
+        }else{
+            // EDIT
+            updateList = students.map((s, index)=>{
+                if(index == editingIndex){
+                    return student
+                }else{
+                    return s
+                }
+            })
+            setEditingIndex(null);
+        };
+        setStudents(updateList);
+        localStorage.setItem("students", JSON.stringify(updateList));
+    }
+
+    // delete function - remove clicked card 
     const deleteStudent = (id) =>{
         /* note - filter:
         - goes over the array one item at a time
@@ -46,9 +76,9 @@ export default function StudentForm(){
     return(
         <>
         {/* Pass the add function to Form */}
-        <Form onAdd={addStudent}/>
+        <Form onAdd={addStudent} onSave={saveStudent} editingStudent={editingIndex !== null? students[editingIndex]:null}/>
         {/* Pass the data to CardList */}
-        <CardList onMenu={toggleMenu} openMenuId={openMenuId} onDelete={deleteStudent} students={students}/>
+        <CardList onMenu={toggleMenu} openMenuId={openMenuId} onEdit={editStudent} onDelete={deleteStudent} students={students}/>
         </>
     );
 };

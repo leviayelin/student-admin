@@ -1,8 +1,8 @@
 // Import section 
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 // Component section 
-export default function Form({onAdd}){
+export default function Form({onAdd,onSave,editingStudent}){
 
     // setting state section 
     const [formData, setFormData] = useState({
@@ -11,6 +11,12 @@ export default function Form({onAdd}){
         major:"",
         email:""
     });
+
+    useEffect(()=>{
+        if(editingStudent){
+            setFormData(editingStudent)
+        }
+    },[editingStudent]);
 
     
     // Event handle section 
@@ -32,7 +38,11 @@ export default function Form({onAdd}){
         //creating local storage empty array if not exited 
         if(formData.name && formData.email){
             // Instead of saving to localStorage here, send it to the parent!
-            onAdd(formData)
+            if(editingStudent){
+                onSave(formData);
+            }else{
+                onAdd(formData);
+            };
             // clear input field after submit 
             setFormData({name:"",age:"",major:"",email:""});
         }else{
@@ -53,7 +63,9 @@ export default function Form({onAdd}){
                 <input id="major" name="major" type="text" onChange={handleOnChange} value={formData.major}/>
                 <label htmlFor="email">Email</label>
                 <input id="email" name="email" type="email" onChange={handleOnChange} value={formData.email}/>
-                <button className='btn mt-3' type="submit">Send</button>
+                <button className='btn mt-3' type="submit">
+                    {editingStudent? "Save Changes":"Add student"}
+                </button>
             </form>
         </div>
         </>
